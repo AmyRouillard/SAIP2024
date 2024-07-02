@@ -7440,7 +7440,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Hierarchical-quantum-architecture-synthesis">Hierarchical quantum architecture synthesis<a class="anchor-link" href="#Hierarchical-quantum-architecture-synthesis">¶</a></h1><p>Amy Rouillard<sup>1</sup>, Matt Lourens<sup>1</sup>, Francesco Petruccione<sup>1,2,3</sup></p>
+<h1 id="Hierarchical-quantum-architecture-synthesis">Hierarchical quantum architecture synthesis<a class="anchor-link" href="#Hierarchical-quantum-architecture-synthesis">¶</a></h1><p>Amy Rouillard<sup>1</sup>, Matt Lourens<sup>1</sup>, Prof Francesco Petruccione<sup>1,2,3</sup></p>
 <img alt="No description has been provided for this image" class="center" height="150" src="./imgs/animation_moviepy.gif"/>
 <p><span style="font-size:0.6em;"> <sup>1</sup> Department of Physics, Stellenbosch University, South Africa</span><br/>
 <span style="font-size:0.6em;"> <sup>2</sup> School for Data Science and Computational Thinking, Stellenbosch University, Stellenbosch, South Africa</span><br/>
@@ -7473,7 +7473,7 @@ main {
 <h2 id="Outline">Outline<a class="anchor-link" href="#Outline">¶</a></h2><ol>
 <li><a href="#introduction">Introduction to Hierarqcal</a></li>
 <li><a href="#problem">Discrete optimization</a></li>
-<li><a href="#results">Can we rediscover a known quantum algorithm?</a></li>
+<li><a href="#results">Can we rediscover known quantum algorithms?</a></li>
 <li><a href="#conclusion">Outlook</a></li>
 </ol>
 </div>
@@ -7800,8 +7800,10 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">add_bits</span> <span class="o">=</span> <span class="p">(</span><span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">Toffoli</span><span class="p">)</span> 
-            <span class="o">+</span> <span class="n">Qpivot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">Cnot</span><span class="p">,</span> <span class="n">global_pattern</span><span class="o">=</span><span class="s2">"1*"</span><span class="p">,</span> <span class="n">merge_within</span><span class="o">=</span><span class="s2">"11"</span><span class="p">))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">add_bits</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">Toffoli</span><span class="p">)</span> 
+    <span class="o">+</span> <span class="n">Qpivot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">Cnot</span><span class="p">,</span> <span class="n">global_pattern</span><span class="o">=</span><span class="s2">"1*"</span><span class="p">,</span> <span class="n">merge_within</span><span class="o">=</span><span class="s2">"11"</span><span class="p">))</span>
+
 <span class="n">circ</span> <span class="o">=</span> <span class="n">Qinit</span><span class="p">([</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">])</span> <span class="o">+</span> <span class="n">add_bits</span>
 
 <span class="n">_</span> <span class="o">=</span> <span class="n">plot_circuit</span><span class="p">(</span><span class="n">circ</span><span class="p">,</span> <span class="n">plot_width</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
@@ -7842,7 +7844,7 @@ main {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">circ</span> <span class="o">=</span> <span class="p">(</span><span class="n">Qinit</span><span class="p">([</span><span class="s1">'a0'</span><span class="p">,</span><span class="s1">'b0'</span><span class="p">,</span><span class="s1">'c0'</span><span class="p">,</span><span class="s1">'a1'</span><span class="p">,</span><span class="s1">'b1'</span><span class="p">,</span><span class="s1">'c1'</span><span class="p">])</span> 
-        <span class="o">+</span> <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">Qinit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">add_bits</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="o">+</span> <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">Qinit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">add_bits</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="n">_</span> <span class="o">=</span> <span class="n">plot_circuit</span><span class="p">(</span><span class="n">circ</span><span class="p">,</span> <span class="n">plot_width</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 </pre></div>
@@ -7886,8 +7888,8 @@ main {
 <img alt="No description has been provided for this image" src="./imgs/nas.png" width="550"/>
 <h3 id="Search-space:">Search space:<a class="anchor-link" href="#Search-space:">¶</a></h3><p>Hierarqcal motifs (Compositions of Qcycle, Qpivot, Qmask, Qunmask)</p>
 <ul>
-<li>independent of the number of qubits</li>
-<li>well defined discrete variables (e.g. mapping, step, boundary,...)</li>
+<li>are independent of the number of qubits</li>
+<li>have well defined discrete variables (e.g. mapping, boundary,...)</li>
 </ul>
 </div>
 </div>
@@ -7918,7 +7920,7 @@ main {
 <img alt="No description has been provided for this image" src="./imgs/nas.png" width="550"/>
 <h3 id="Performance-estimate:">Performance estimate:<a class="anchor-link" href="#Performance-estimate:">¶</a></h3><p>Fitness function</p>
 <ul>
-<li>Fidelity w.r.t. some target states, $|\langle x^{(i)} | U |y^{(i)} \rangle|$</li>
+<li>Fidelity w.r.t. some target states, $|\langle y^{(i)} | U |x^{(i)} \rangle|$</li>
 <li>Classification performance score (accuracy, F1 score, etc.)</li>
 <li>Expectation value (e.g. energy)</li>
 </ul>
@@ -8040,7 +8042,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Can-we-rediscover-a-known-quantum-algorithms?-">Can we rediscover a known quantum algorithms? <a name="results"></a><a class="anchor-link" href="#Can-we-rediscover-a-known-quantum-algorithms?-">¶</a></h1>
+<h1 id="Can-we-rediscover-a-known-quantum-algorithm?-">Can we rediscover a known quantum algorithm? <a name="results"></a><a class="anchor-link" href="#Can-we-rediscover-a-known-quantum-algorithm?-">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8079,8 +8081,9 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><br/></p>
 <ul>
-<li>Training set: $\{|j\rangle \rightarrow \frac{1}{\sqrt{2^n}} \sum^{2^n-1}_{k=0} e^{2\pi ijk/2^n}|k\rangle\}_{j\in \{0\dots 2^{n}-1\}}$</li>
-<li>Architecture work correctly for any circuit sizes</li>
+<li>Found motif should work correctly for arbitrary circuit sizes</li>
+<li>Repetitions (multiplication) should be learnt</li>
+<li>Training set: 2, 3 and 4 qubits</li>
 <li>Mappings include parameterized gates</li>
 </ul>
 </div>
@@ -8118,12 +8121,12 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">motif</span> <span class="o">=</span> <span class="p">(</span>
-<span class="n">Qpivot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">CRx</span><span class="p">,</span> <span class="n">global_pattern</span><span class="o">=</span><span class="s2">"1*"</span><span class="p">)</span> 
-<span class="o">+</span> <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">H</span><span class="p">)</span> 
-<span class="o">+</span> <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">H</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
-<span class="o">+</span> <span class="n">Qmask</span><span class="p">(</span><span class="s2">"1*"</span><span class="p">)</span>
-<span class="p">)</span><span class="o">*</span><span class="n">nq</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">motif</span> <span class="o">=</span> <span class="n">nq</span><span class="o">*</span><span class="p">(</span>
+    <span class="n">Qpivot</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">CRx</span><span class="p">,</span> <span class="n">global_pattern</span><span class="o">=</span><span class="s2">"1*"</span><span class="p">)</span> 
+    <span class="o">+</span> <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">H</span><span class="p">)</span> 
+    <span class="o">+</span> <span class="n">Qcycle</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">H</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+    <span class="o">+</span> <span class="n">Qmask</span><span class="p">(</span><span class="s2">"1*"</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8183,7 +8186,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Outlook-">Outlook <a name="conclusion"></a><a class="anchor-link" href="#Outlook-">¶</a></h2><p><br/></p>
 <ul>
-<li><p>Grover's unstructured dataset search algorithm</p>
+<li><p>Grover's search algorithm</p>
 </li>
 <li><p>Exploit the circuit mapping hierarchy</p>
 </li>
